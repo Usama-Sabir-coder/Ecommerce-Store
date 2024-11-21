@@ -80,13 +80,15 @@ const CategoriesPage = () => {
                   alt={product.title}
                   className="h-40 w-full object-contain mb-4"
                 />
-                <h2 className="text-lg font-semibold text-gray-800 truncate">
+                <h2 className="text-lg font-semibold text-blue-800 truncate">
                   {product.title}
                 </h2>
-                <p className="text-gray-600 text-sm truncate">
+                <p className="text-black text-sm truncate">
                   {product.description.substring(0, 100)}...
                 </p>
-                <p className="text-blue-600 font-bold mt-2">${product.price}</p>
+                <p className="text-black text-center font-bold mt-2">
+                  ${product.price}
+                </p>
                 <button className="bg-blue-600 text-white py-2 px-4 rounded-lg mt-4 w-full hover:bg-blue-700 transition duration-300">
                   View Details
                 </button>

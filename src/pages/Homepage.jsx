@@ -38,32 +38,12 @@ const HomePage = () => {
         </h1>
       </div>
       <br /> <br />
-      <div className="bg-gradient-to-r from-purple-500 to-pink-500 text-white py-10 text-center">
+      <div className="bg-gradient-to-r from-blue-500 to-purple-500 text-white py-8 text-center">
         <h1 className="text-5xl font-bold">Clothing Store!</h1>
         <p className="text-xl mt-4">
           Explore the best products at unbeatable prices!
         </p>
       </div>
-      <br />
-      {/* Category Section */}
-      <div className="mt-10 px-6">
-        <h2 className="text-3xl font-semibold mb-6 text-blue-900">
-          Shop by Category
-        </h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
-          {["Electronics", "Fashion", "Home", "Beauty", "Sports", "Toys"].map(
-            (category, idx) => (
-              <div
-                key={idx}
-                className="bg-white shadow-md p-4 rounded-lg hover:shadow-xl hover:bg-blue-100 transition duration-300"
-              >
-                <p className="text-lg font-medium text-blue-700">{category}</p>
-              </div>
-            )
-          )}
-        </div>
-      </div>
-      <br />
       <br />
       <br />
       {/* Featured Products */}
@@ -107,6 +87,29 @@ const HomePage = () => {
         </h2>
         <p className="mt-2 text-lg m-5">Limited time offer on top products!</p>
       </div>
+      {/* Category Section */}
+      <div className="mt-10 px-6">
+        <h2 className="text-3xl font-semibold mb-6 text-blue-900">
+          Shop by Category
+        </h2>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+          {[
+            "Electronics",
+            "Jewelery",
+            "Men's Clothing",
+            "Women's Clothing",
+          ].map((category, idx) => (
+            <div
+              key={idx}
+              className="bg-white shadow-md p-4 rounded-lg hover:shadow-xl hover:bg-blue-100 transition duration-300"
+            >
+              <p className="text-lg font-medium text-blue-700">{category}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+      <br />
+      <br />
       {/* Footer */}
       <footer className="bg-blue-700 text-white py-8 mt-10">
         <div className="container mx-auto flex flex-col items-center">
