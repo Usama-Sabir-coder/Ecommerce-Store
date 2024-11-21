@@ -17,16 +17,21 @@ const ProductDetailsPage = () => {
     fetchData();
   }, []);
   return (
-    <>
+    <div className="text-center ">
       {Object.keys(ProductData).length !== 0 ? (
-        <>
+        <div className="text-sm truncate max-w-xs ">
           <h1>{ProductID}</h1>
-          <h1>Title : {ProductData.title}</h1>
+          <h1 className="text-lg font-semibold text-blue-800">
+            Title : {ProductData.title}
+          </h1>
           <img src={ProductData.image} />
-          <p>Price : {ProductData.price}</p>
+          <p className="font-bold ">Price : {ProductData.price}</p>
           <p>Description : {ProductData.description}</p>
           <p>Rating : {ProductData.rating.rate}</p>
-        </>
+          <button className="bg-blue-600 text-white py-1 px-4 rounded-lg mt-4 hover:bg-blue-700 transition duration-300">
+            Buy Now
+          </button>
+        </div>
       ) : (
         <>
           <h1>Loading...</h1>
@@ -51,7 +56,7 @@ const ProductDetailsPage = () => {
           </div>
         </div>
       </footer>
-    </>
+    </div>
   );
 };
 

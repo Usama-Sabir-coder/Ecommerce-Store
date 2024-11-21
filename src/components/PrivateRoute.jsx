@@ -1,12 +1,17 @@
+import { useContext } from "react";
+import { UserAuthContext } from "../context/UserAuthContext";
+import { Navigate } from "react-router-dom";
+
 const PrivateRoute = (props) => {
-  const isLoggedIn = true;
+  const { isLoggedIn } = useContext(UserAuthContext);
+
   return (
     <>
       {isLoggedIn ? (
         <>{props.children}</>
       ) : (
         <>
-          <Navigate to={"/Login"} />
+          <Navigate to={"/user-auth/Login"} />
         </>
       )}
     </>

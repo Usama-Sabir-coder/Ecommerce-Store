@@ -8,44 +8,51 @@ import UserAurth from "./pages/UserAurth";
 import UserProfile from "./pages/Userprofile";
 import PrivateRoute from "./components/PrivateRoute";
 import CategoriesPage from "./pages/Categories";
+import ABC from "./context/UserAuthContext";
+import Navbar from "./components/Navbar";
 
 const App = () => {
   return (
     <>
-      <Routes>
-        <Route path="/" element={<HomePage />}></Route>
-        <Route
-          path="Products/:CategoryName ?"
-          element={
-            <PrivateRoute>
-              <ProductPage />
-            </PrivateRoute>
-          }
-        ></Route>
-        <Route path="user-aurth" element={<UserAurth />}>
+      <ABC>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<HomePage />}></Route>
           <Route
-            index
+            path="Products/:categoryName?"
             element={
-              <h1 className=" text-5xl  text-white  bg-sky-700">Index Route</h1>
+              <PrivateRoute>
+                <ProductPage />
+              </PrivateRoute>
             }
           ></Route>
-          <Route path="Login" element={<LoginPage />}></Route>
-          <Route path="Signup" element={<SignupPage />}></Route>
-        </Route>
-        <Route
-          path="User-profile"
-          element={
-            <PrivateRoute>
-              <UserProfile />
-            </PrivateRoute>
-          }
-        ></Route>
-        <Route
-          path="Product-details/:ProductID"
-          element={<ProductDetailsPage />}
-        ></Route>
-        <Route path="Category" element={<CategoriesPage />}></Route>
-      </Routes>
+          <Route path="user-auth" element={<UserAurth />}>
+            <Route
+              index
+              element={
+                <h1 className=" text-5xl  text-white  bg-sky-700">
+                  Index Route
+                </h1>
+              }
+            ></Route>
+            <Route path="Login" element={<LoginPage />}></Route>
+            <Route path="Signup" element={<SignupPage />}></Route>
+          </Route>
+          <Route
+            path="user-profile"
+            element={
+              <PrivateRoute>
+                <UserProfile />
+              </PrivateRoute>
+            }
+          ></Route>
+          <Route
+            path="Product-details/:ProductID"
+            element={<ProductDetailsPage />}
+          ></Route>
+          <Route path="Category" element={<CategoriesPage />}></Route>
+        </Routes>
+      </ABC>
     </>
   );
 };

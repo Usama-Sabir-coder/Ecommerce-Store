@@ -40,6 +40,9 @@ const ProductPage = () => {
 
   return (
     <>
+      <br />
+      <br />
+      <h1 className="text-4xl font-bold mb-6  text-center">Our Products</h1>
       <input
         className="border-black w-full p-4 mt-2 mb-4  "
         placeholder="Search Product..."
@@ -48,6 +51,8 @@ const ProductPage = () => {
           setSearchString(e.target.value);
         }}
       />
+      <br />
+      <br />
       <div className="flex flex-wrap gap-6 justify-center">
         {searchedProduct.map((prod) => (
           <ProductCards
@@ -61,10 +66,10 @@ const ProductPage = () => {
         ))}
       </div>
       {/* Footer */}
-      <footer className="bg-black text-white py-8 mt-10">
+      <footer className="bg-blue-700 text-white py-8 mt-10">
         <div className="container mx-auto flex flex-col items-center">
           <p className="text-sm">
-            &copy; 2024 Store Clone. All rights reserved.
+            &copy; 2024 Clothing Store Clone. All rights reserved.
           </p>
           <div className="flex space-x-4 mt-4">
             <a href="#" className="hover:underline">
