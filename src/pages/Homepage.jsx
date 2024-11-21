@@ -1,7 +1,29 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
+
 const HomePage = () => {
+  const [featuredProducts, setFeaturedProducts] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const fetchFeaturedProducts = async () => {
+      setLoading(true);
+      try {
+        const response = await axios.get(
+          "https://fakestoreapi.com/products?limit=6"
+        );
+        setFeaturedProducts(response.data);
+      } catch (error) {
+        console.error("Error fetching featured products:", error);
+      }
+      setLoading(false);
+    };
+
+    fetchFeaturedProducts();
+  }, []);
   return (
     <>
-      {/* Hero Banner */}
+      {/*  Banner */}
       <div
         className="relative bg-cover bg-center h-72 flex items-center justify-center text-white w-full"
         style={{
@@ -41,17 +63,43 @@ const HomePage = () => {
           )}
         </div>
       </div>
-      {/* Featured Products Section */}
-      <div className="mt-10 px-6">
+      <br />
+      <br />
+      <br />
+      {/* Featured Products */}
+      <section className="mt-10 px-6">
         <h2 className="text-3xl font-semibold mb-6 text-blue-900">
           Featured Products
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {/* {products.slice(0, 8).map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))} */}
-        </div>
-      </div>
+        {loading ? (
+          <div className="text-center text-blue-600 text-lg">Loading...</div>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {featuredProducts.map((product) => (
+              <div
+                key={product.id}
+                className="border p-4 rounded-lg shadow-md hover:shadow-lg text-center transition duration-300"
+              >
+                <img
+                  src={product.image}
+                  alt={product.title}
+                  className="h-40 w-full object-contain mb-4"
+                />
+                <h3 className="text-lg font-semibold  text-blue-800 truncate">
+                  {product.title}
+                </h3>
+                <p className="text-black text-sm truncate">
+                  {product.description.substring(0, 100)}...
+                </p>
+                <p className="text-black font-bold mt-2">${product.price}</p>
+                <button className="bg-blue-600 text-white py-2 px-4 rounded-lg mt-4 w-full hover:bg-blue-700 transition duration-300">
+                  View Details
+                </button>
+              </div>
+            ))}
+          </div>
+        )}
+      </section>
       {/* Sale Banner */}
       <div className="relative bg-gradient-to-r from-red-400 to-indigo-900 text-white py-10 mt-10">
         <h2 className="text-4xl font-bold m-5">
