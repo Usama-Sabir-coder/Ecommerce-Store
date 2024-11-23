@@ -25,15 +25,15 @@ const HomePage = () => {
     <>
       {/*  Banner */}
       <div
-        className="relative bg-cover bg-center h-72 flex items-center justify-center text-white w-full"
+        className="relative bg-cover bg-center h-96 flex items-center justify-center text-white w-full"
         style={{
-          backgroundImage: "url('/src/assets/fd2.jpg')",
+          backgroundImage: "url('/src/assets/Modern.png')",
           backgroundColor: "black",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        <h1 className="text-2xl font-bold bg-blue-200 bg-opacity-70 px-8 py-4 rounded-lg">
+        <h1 className="text-2xl font-bold bg-gray-900 bg-opacity-70 px-8 py-4 rounded-lg">
           Welcome to Store Clone
         </h1>
       </div>
